@@ -1,0 +1,105 @@
+menu "MX27 Options"
+	depends on ARCH_MX27
+
+config MACH_MX27ADS
+	bool "Support MX27ADS platforms"
+	default y
+	help
+	  Include support for MX27ADS platform. This includes specific
+	  configurations for the board and its peripherals.
+
+config MACH_MX27_MDK27V0
+	bool "Support MX27 MDK27V0 platforms"
+	default n
+	select MXC_POWER_CONTROL
+	help
+	  Include support for MX27 MDK27V0 platform. This includes specific
+	  configurations for the board and its peripherals.
+
+config MACH_MX27_MDK27V1
+	bool "Support MX27 MDK27V1 platforms"
+	default n
+	select MACH_MX27_MDK27V0
+	help
+	  Include support for MX27 MDK27V1 platform. This includes specific
+	  configurations for the board and its peripherals.
+
+config MACH_MX27_SYP
+	bool "Support MX27 SYP platforms"
+	default n
+	select MACH_MX27_MDK27V1
+	help
+	  Include support for MX27 SYP platform. This includes specific
+	  configurations for the board and its peripherals.
+
+config MACH_MX27_TUOSI
+	bool "Support MX27 TUOSI platforms"
+	default n
+	select MACH_MX27_MDK27V1
+	help
+	  Include support for MX27 TUOSI platform. This includes specific
+	  configurations for the board and its peripherals.
+
+config MACH_MX27_MPK271
+	bool "Support MX27 MPK271 platforms"
+	default n
+	select MACH_MX27_MDK27V1
+	help
+	  Include support for MX27 MPK271 platform. This includes specific
+	  configurations for the board and its peripherals.
+
+config MACH_MX27_MPK272
+	bool "Support MX27 MPK272 platforms"
+	default n
+	select MACH_MX27_MPK271
+	help
+	  Include support for MX27 MPK272 platform. This includes specific
+	  configurations for the board and its peripherals.
+
+config MACH_MX27_TUTK
+	bool "Support MX27 TUTK platforms"
+	default n
+	select MACH_MX27_MPK271
+	help
+	  Include support for MX27 TUTK platform. This includes specific
+	  configurations for the board and its peripherals.
+
+config ISP1504_MXC
+	tristate "ISP1504 transceiver support"
+	select ISP1504_MXC_OTG if USB_GADGET && USB_EHCI_HCD && USB_OTG
+	help
+	  Support for the ISP1504 USB transceiver on MXC platforms.
+
+config ISP1504_MXC_OTG
+	tristate
+	help
+	  Support for USB OTG using the ISP1504 transceiver on MXC platforms.
+
+config ISP1301_MXC
+	bool
+	select I2C_MXC
+
+menu "Device options"
+
+config I2C_MXC_SELECT1
+	bool "Enable I2C1 module"
+	default y
+	depends on I2C_MXC
+	help
+	  Enable MX31 I2C1 module.
+
+config I2C_MXC_SELECT2
+	bool "Enable I2C2 module"
+	default n
+	depends on I2C_MXC
+	help
+	  Enable MX31 I2C2 module.
+
+config MXC_POWER_CONTROL
+	bool "Support power control to external modules"
+	default n
+	help
+	  Support the control of power to external modules.
+endmenu
+
+endmenu

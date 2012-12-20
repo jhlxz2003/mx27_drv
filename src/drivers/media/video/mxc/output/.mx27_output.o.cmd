@@ -1,0 +1,1 @@
+cmd_drivers/media/video/mxc/output/mx27_output.o := arm-926ejs-linux-ld -EL   -r -o drivers/media/video/mxc/output/mx27_output.o drivers/media/video/mxc/output/mx27_v4l2_output.o drivers/media/video/mxc/output/mx27_pp.o

@@ -1,0 +1,1 @@
+arecord -c 1 -r 16000 -f S16_LE -d 30 0.wav

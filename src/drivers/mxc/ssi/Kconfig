@@ -1,0 +1,19 @@
+#
+# SPI device configuration
+#
+
+menu "MXC SSI support"
+
+config MXC_SSI
+	tristate "SSI support"
+	---help---
+	  Say Y to get the SSI services API available on MXC platform. 
+
+config MXC_SSI_AC97
+	tristate "SSI AC97 support"
+	depends on MXC_SSI
+	---help---
+	  Say Y to get the SSI AC97 support on MXC platform. 
+
+endmenu
+
